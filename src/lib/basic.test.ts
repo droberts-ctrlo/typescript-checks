@@ -1,5 +1,5 @@
 import { describe, it, expect } from '@jest/globals';
-import { isNotNull, isNotUndefined, isNull, isUndefined } from "./basic"
+import { isNotNull, isNotNullOrUndefined, isNotUndefined, isNull, isUndefined } from "./basic"
 
 describe('Basic type checks', () => {
     it('should check if input is null', () => {
@@ -28,5 +28,12 @@ describe('Basic type checks', () => {
         expect(isNotUndefined(null)).toBe(true);
         expect(isNotUndefined(0)).toBe(true);
         expect(isNotUndefined('')).toBe(true);
+    });
+
+    it('should check if input is not null or undefined', () => {
+        expect(isNotNullOrUndefined(null)).toBe(false);
+        expect(isNotNullOrUndefined(undefined)).toBe(false);
+        expect(isNotNullOrUndefined(0)).toBe(true);
+        expect(isNotNullOrUndefined('')).toBe(true);
     });
 });
