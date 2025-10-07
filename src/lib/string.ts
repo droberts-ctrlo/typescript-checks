@@ -1,6 +1,6 @@
-import { isNotNull, isNotUndefined } from "./basic"
+import { isNotNullOrUndefined } from "./basic"
 
-export const isString = (value: unknown): value is string => isNotNull(value) && isNotUndefined(value) && (typeof value === "string" || value instanceof String)
+export const isString = (value: unknown): value is string => isNotNullOrUndefined(value) && (typeof value === "string" || value instanceof String)
 export const isEmptyString = (value: unknown): value is string => isString(value) && value.length === 0
 export const isNotEmptyString = (value: unknown): value is string => isString(value) && !isEmptyString(value)
 
